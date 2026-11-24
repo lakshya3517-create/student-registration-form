@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Registration Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <h1>Student registration</h1>
+      <p>Fill in your details to register for the new academic session. Fields marked with * are required.</p>
+    </header>
+
+    <form id="regForm" novalidate>
+      <fieldset>
+        <legend>Personal details</legend>
+
+        <div class="field">
+          <label for="fullName">Full name *</label>
+          <input type="text" id="fullName" name="fullName" autocomplete="name" placeholder="e.g. Aarav Sharma">
+          <small class="error" id="fullName-error" role="alert"></small>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="dob">Date of birth *</label>
+            <input type="date" id="dob" name="dob">
+            <small class="error" id="dob-error" role="alert"></small>
+          </div>
+          <div class="field">
+            <span class="label" id="gender-label">Gender *</span>
+            <div class="choices" role="radiogroup" aria-labelledby="gender-label">
+              <label><input type="radio" name="gender" value="Male"> Male</label>
+              <label><input type="radio" name="gender" value="Female"> Female</label>
+              <label><input type="radio" name="gender" value="Other"> Other</label>
+            </div>
+            <small class="error" id="gender-error" role="alert"></small>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Contact</legend>
+
+        <div class="row">
+          <div class="field">
+            <label for="email">Email address *</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="name@example.com">
+            <small class="error" id="email-error" role="alert"></small>
+          </div>
+          <div class="field">
+            <label for="phone">Phone number *</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number">
+            <small class="error" id="phone-error" role="alert"></small>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="address">Address</label>
+          <textarea id="address" name="address" rows="2" placeholder="House no., street, city"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Course</legend>
+
+        <div class="row">
+          <div class="field">
+            <label for="course">Course *</label>
+            <select id="course" name="course">
+              <option value="">Select a course</option>
+              <option>B.Tech - Computer Science</option>
+              <option>B.Tech - Electronics</option>
+              <option>BCA</option>
+              <option>BBA</option>
+              <option>B.Sc</option>
+              <option>Diploma</option>
+            </select>
+            <small class="error" id="course-error" role="alert"></small>
+          </div>
+          <div class="field">
+            <label for="year">Year *</label>
+            <select id="year" name="year">
+              <option value="">Select year</option>
+              <option>1st year</option>
+              <option>2nd year</option>
+              <option>3rd year</option>
+              <option>4th year</option>
+            </select>
+            <small class="error" id="year-error" role="alert"></small>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="check">
+            <input type="checkbox" id="terms" name="terms">
+            I confirm that the details above are correct. *
+          </label>
+          <small class="error" id="terms-error" role="alert"></small>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="submit" class="primary">Register</button>
+        <button type="reset" class="secondary" id="resetBtn">Clear form</button>
+      </div>
+    </form>
+
+    <section id="result" class="result" hidden aria-live="polite">
+      <h2>Registration received</h2>
+      <p>Thank you, <strong id="r-name"></strong>. Here is what you submitted:</p>
+      <dl id="r-list"></dl>
+      <button type="button" class="secondary" id="newBtn">Register another student</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
